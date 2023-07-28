@@ -5,33 +5,32 @@ using UnityEngine.EventSystems;
 public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
     private const float INPUT_RANGE = 2.0f;
-    private const float INPUT_MIN = -1.0f;
+    private const float INPUT_MIN = 1.0f;
     private const int KNOB_MAX_DISPLACEMENT_RATIO = 3;
 
-    private RectTransform joystickBackground;
-    private RectTransform joystickKnob;
-    private Vector2 inputVector;
+    private RectTransform _joystickBackground;
+    private RectTransform _joystickKnob;
+    private Vector2 _inputVector;
 
     private void Start()
     {
-        joystickBackground = GetComponent<RectTransform>();
-        joystickKnob = transform.GetChild(0).GetComponent<RectTransform>();
+        _joystickBackground = GetComponent<RectTransform>();
+        _joystickKnob = transform.GetChild(0).GetComponent<RectTransform>();
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Vector2 position;
-        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(joystickBackground, eventData.position, eventData.pressEventCamera, out position))
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_joystickBackground, eventData.position, eventData.pressEventCamera, out Vector2 position))
         {
-            position.x = (position.x / joystickBackground.sizeDelta.x);
-            position.y = (position.y / joystickBackground.sizeDelta.y);
+            position.x /= _joystickBackground.sizeDelta.x;
+            position.y /= _joystickBackground.sizeDelta.y;
 
-            inputVector = new Vector2(position.x * INPUT_RANGE, position.y * INPUT_RANGE);
-            inputVector = (inputVector.magnitude > 1.0f) ? inputVector.normalized : inputVector;
+            _inputVector = new Vector2(position.x * INPUT_RANGE, position.y * INPUT_RANGE);
+            _inputVector = (_inputVector.magnitude > INPUT_MIN) ? _inputVector.normalized : _inputVector;
 
-            joystickKnob.anchoredPosition = new Vector2(
-                inputVector.x * (joystickBackground.sizeDelta.x / KNOB_MAX_DISPLACEMENT_RATIO),
-                inputVector.y * (joystickBackground.sizeDelta.y / KNOB_MAX_DISPLACEMENT_RATIO)
+            _joystickKnob.anchoredPosition = new Vector2(
+                _inputVector.x * (_joystickBackground.sizeDelta.x / KNOB_MAX_DISPLACEMENT_RATIO),
+                _inputVector.y * (_joystickBackground.sizeDelta.y / KNOB_MAX_DISPLACEMENT_RATIO)
             );
         }
     }
@@ -43,12 +42,12 @@ public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        inputVector = Vector2.zero;
-        joystickKnob.anchoredPosition = Vector2.zero;
+        _inputVector = Vector2.zero;
+        _joystickKnob.anchoredPosition = Vector2.zero;
     }
 
     public Vector2 GetInputVector()
     {
-        return inputVector;
+        return _inputVector;
     }
 }

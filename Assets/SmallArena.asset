@@ -15,9 +15,13 @@ MonoBehaviour:
   _sizeX: 5
   _sizeZ: 10
   _borderHeight: 0.5
+  _borderWidth: 1
   _gateWidth: 1
   _gateLenght: 1.2
   _gateHeight: 1
   _borderColor: {r: 0.070630096, g: 0.6037736, b: 0.6037736, a: 1}
   _floorColor: {r: 0.767812, g: 0.55137056, b: 0.8301887, a: 1}
   _gateColor: {r: 0.2179779, g: 0.735849, b: 0.2287682, a: 1}
+  _obstacles:
+  - {fileID: 6824467936731800597, guid: 773891b68ad4fb84eaf12f42d96f5100, type: 3}
+  - {fileID: 1796012385311844845, guid: 26fa0033b3390ca4abd9ce46c63e5ceb, type: 3}

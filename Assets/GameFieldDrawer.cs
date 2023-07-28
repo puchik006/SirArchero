@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class GameFieldDrawer : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class GameFieldDrawer : MonoBehaviour
     private void Start()
     {
         CreateGameField();
+        CreateObstacles(_data.Obstacles);
     }
 
     private void CreateGameField()
@@ -26,6 +28,11 @@ public class GameFieldDrawer : MonoBehaviour
         figure.transform.position = position;
         figure.transform.localScale = scale;
         figure.GetComponent<Renderer>().material.color = color;
+    }
+
+    private void CreateObstacles(List<Transform> obstacles)
+    {
+        obstacles.ForEach(e => Instantiate(e));
     }
 }
 
