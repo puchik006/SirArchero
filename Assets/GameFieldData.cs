@@ -39,6 +39,4 @@ public class GameFieldData : ScriptableObject
     public Vector3 GatePosition => new(default, default, SizeZ/2);
     public Vector3 GateScale => new(_gateWidth, _gateHeight, _gateLenght);
     public Vector3 FloorScale => new(_sizeX, 1, _sizeZ);
-
-    
 }
