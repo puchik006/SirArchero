@@ -26,7 +26,7 @@ public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler
             position.x = (position.x / joystickBackground.sizeDelta.x);
             position.y = (position.y / joystickBackground.sizeDelta.y);
 
-            inputVector = new Vector2(position.x * INPUT_RANGE - 1, position.y * INPUT_RANGE - 1);
+            inputVector = new Vector2(position.x * INPUT_RANGE, position.y * INPUT_RANGE);
             inputVector = (inputVector.magnitude > 1.0f) ? inputVector.normalized : inputVector;
 
             joystickKnob.anchoredPosition = new Vector2(
