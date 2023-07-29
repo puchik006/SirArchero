@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(RectTransform))]
-public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
+public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler, IMovementDirectionHandler
 {
     private const float INPUT_RANGE = 2.0f;
     private const float INPUT_MIN = 1.0f;
@@ -46,7 +46,7 @@ public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler
         _joystickKnob.anchoredPosition = Vector2.zero;
     }
 
-    public Vector2 GetInputVector()
+    public Vector2 GetMovementVector()
     {
         return _inputVector;
     }
