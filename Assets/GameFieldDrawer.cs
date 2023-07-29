@@ -1,12 +1,14 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class GameFieldDrawer : MonoBehaviour
+public class GameFieldDrawer
 {
-    [SerializeField] private GameFieldData _data;
+    private readonly GameFieldData _data;
 
-    private void Start()
+    public GameFieldDrawer(GameFieldData data)
     {
+        _data = data;
+
         CreateGameField();
         CreateObstacles(_data.Obstacles);
     }
@@ -32,7 +34,7 @@ public class GameFieldDrawer : MonoBehaviour
 
     private void CreateObstacles(List<Transform> obstacles)
     {
-        obstacles.ForEach(e => Instantiate(e));
+        obstacles.ForEach(e => Object.Instantiate(e));
     }
 }
 
