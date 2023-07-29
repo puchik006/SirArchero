@@ -881,10 +881,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1436154287}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49ca465704964e04ba8a565a9dea4550, type: 3}
+  m_Script: {fileID: 11500000, guid: ee0dd32ab0ce83c42ba15d324f85277a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
 --- !u!1 &1472329607
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,10 +1005,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: 5af55bcdfdd12964bbc5eb0babffd5fd, type: 2}
-  _playerController: {fileID: 1436154292}
-  _enemyController: {fileID: 2003083405}
   _joystickController: {fileID: 91204109}
   _enemyDirection: {fileID: 2003083400}
+  _player: {fileID: 1436154292}
+  _enemy: {fileID: 2003083405}
 --- !u!1 &1798278969
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,7 +1284,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2003083399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49ca465704964e04ba8a565a9dea4550, type: 3}
+  m_Script: {fileID: 11500000, guid: 32d76c117a7d8d7409069041ddd9df1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3

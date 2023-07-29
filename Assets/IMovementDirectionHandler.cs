@@ -2,5 +2,5 @@
 
 public interface IMovementDirectionHandler
 {
-    public Vector2 GetMovementVector();
+    public Vector3 GetMovementVector();
 }

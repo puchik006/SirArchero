@@ -46,8 +46,11 @@ public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler
         _joystickKnob.anchoredPosition = Vector2.zero;
     }
 
-    public Vector2 GetMovementVector()
+    public Vector3 GetMovementVector()
     {
-        return _inputVector;
+        float horizontalInput = _inputVector.x;
+        float verticalInput = _inputVector.y;
+
+        return new Vector3(horizontalInput, default, verticalInput).normalized; 
     }
 }

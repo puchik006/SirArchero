@@ -62,3 +62,23 @@ public class MovementChecker
         return true;
     }
 }
+
+public class CollisionChecker: MonoBehaviour
+{
+    [SerializeField] Transform _player;
+    [SerializeField] Transform _enemy;
+
+    //public bool IsTouchingEnemy(Vector3 position, Transform enemyTransform, float enemyRadius)
+    //{
+    //    float distanceToEnemy = Vector3.Distance(position, enemyTransform.position);
+    //    float minDistance = _obstacleRadii.Count > 0 ? _obstacleRadii[0] + enemyRadius : enemyRadius;
+
+    //    foreach (float obstacleRadius in _obstacleRadii)
+    //    {
+    //        float distanceToObstacle = Vector3.Distance(position, enemyTransform.position);
+    //        minDistance = Mathf.Min(minDistance, distanceToObstacle + obstacleRadius);
+    //    }
+
+    //    return distanceToEnemy <= minDistance;
+    //}
+}
